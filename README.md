@@ -3,8 +3,15 @@
 A containerfile for [Codex](https://chatgpt.com/codex/) based agent
 programming.
 
-This is intended as a start point for your coding agent container. You
-may need different utilities than I do so modify [Containerfile](Containerfile) and add the packages and tools you need
+I created this because I want to use Codex conveniently from the
+command line, not messing with my development environment or host
+system. I have a subdirectory where I can co-edit the files or if I
+want to keep even more distance, I can ask it to commit independently
+and let me do my human commits separately.
+
+This is intended as a start point for your own coding agent
+container. You may need different utilities than I do so modify
+[Containerfile](Containerfile) and add the packages and tools you need
 for your development.
 
 ## Building
