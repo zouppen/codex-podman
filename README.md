@@ -1,11 +1,10 @@
 # Codex container
 
-A containerfile for [Codex)[https://chatgpt.com/codex/) based agent
+A containerfile for [Codex](https://chatgpt.com/codex/) based agent
 programming.
 
 This is intended as a start point for your coding agent container. You
-may need different utilities than I do so modify
-̀[Containerfile](Containerfile) and add the packages and tools you need
+may need different utilities than I do so modify [Containerfile](Containerfile) and add the packages and tools you need
 for your development.
 
 ## Building
