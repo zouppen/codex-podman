@@ -6,17 +6,22 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Update package lists and install some packages
 RUN apt-get update
+
+# Needed by Codex
 RUN apt-get install -y --no-install-recommends \
 	nodejs \
 	npm \
 	ripgrep \
 	bubblewrap \
-	git \
-	gcc \
-	cmake
+	git
 
 # Install Codex
-RUN npm install  -g @openai/codex
+RUN npm install -g @openai/codex
+
+# My own set of tools
+RUN apt-get install -y --no-install-recommends \
+	gcc \
+	cmake
 
 # Clean-up
 RUN apt-get clean
