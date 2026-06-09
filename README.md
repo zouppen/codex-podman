@@ -9,23 +9,32 @@ system. I have a subdirectory where I can co-edit the files or if I
 want to keep even more distance, I can ask it to commit independently
 and let me do my human commits separately.
 
-This is intended as a start point for your own coding agent
-container. You may need different utilities than I do so modify
-[Containerfile](Containerfile) and add the packages and tools you need
-for your development.
-
 ## Building
 
 When building the first time it may be wise to use `--no-cache` to
-avoid some old images coming from the past. If you do your own
-modifications, it's a good idea to drop it to speed up building.
+avoid some old images coming from the past.
 
 ```
-podman build --no-cache -t codex .
+cd my_dev
+podman build --no-cache -t my_codex .
+```
+
+## Your own work environment
+
+This is intended as a start point for your own coding agent
+container. You may need different utilities than I, so make a copy of
+directory `my_dev` and create your own `Containerfile`
+
+You may create your own Containerfile for your needs. I've put my
+example in [my_dev](my_dev/Containerfile). To build it:
+
+```
+cd my_dev
+podman build -t my_codex .
 ```
 
 ## Running
 
 ```
-podman run -it --rm -v /YOUR_PATH/conf:/root/.codex:Z -v /YOUR_PATH/work:/work:Z codex
+podman run -it --rm -v /YOUR_PATH/conf:/root/.codex:Z -v /YOUR_PATH/work:/work:Z my_codex
 ```

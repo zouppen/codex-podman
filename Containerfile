@@ -13,19 +13,13 @@ RUN apt-get install -y --no-install-recommends \
 	npm \
 	ripgrep \
 	bubblewrap \
+	file \
+	curl \
+	xxd \
 	git
 
 # Install Codex
 RUN npm install -g @openai/codex
-
-# My own set of tools
-RUN apt-get install -y --no-install-recommends \
-	gcc \
-	cmake
-
-# Clean-up
-RUN apt-get clean
-RUN rm -rf /var/lib/apt/lists/*
 
 # Symlinks et cetera
 COPY --chown=root:root template /
@@ -37,4 +31,4 @@ VOLUME /conf
 VOLUME /work
 
 # Default command (example usage of installed package)
-CMD ["codex", "-a", "on-request"]
+CMD ["codex", "-s", "danger-full-access"]
