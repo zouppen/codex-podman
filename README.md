@@ -15,8 +15,7 @@ When building the first time it may be wise to use `--no-cache` to
 avoid some old images coming from the past.
 
 ```
-cd my_dev
-podman build --no-cache -t my_codex .
+podman build --no-cache -t codex .
 ```
 
 ## Your own work environment
