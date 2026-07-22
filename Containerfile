@@ -16,6 +16,7 @@ RUN apt-get install -y --no-install-recommends \
 	file \
 	curl \
 	xxd \
+	less \
 	git
 
 # Install Codex

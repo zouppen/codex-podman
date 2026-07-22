@@ -32,8 +32,19 @@ cd my_dev
 podman build -t my_codex .
 ```
 
+## First time run
+
+In the following examples, change ̀`/YOUR_CONF_PATH` to an absolute path which you want to use for storing Codex login information etc.
+
+```
+mkdir -p /YOUR_CONF_PATH/codex
+podman run -it --rm -v /YOUR_CONF_PATH:/conf:Z -v my_codex codex login --device-auth
+```
+
+Follow the instructions for logging in.
+
 ## Running
 
 ```
-podman run -it --rm -v /YOUR_PATH/conf:/root/.codex:Z -v /YOUR_PATH/work:/work:Z my_codex
+podman run -it --rm -v /YOUR_CONF_PATH:/conf:Z -v /YOUR_PATH/work:/work:Z my_codex
 ```
