@@ -38,7 +38,7 @@ In the following examples, change ̀`/YOUR_CONF_PATH` to an absolute path which 
 
 ```
 mkdir -p /YOUR_CONF_PATH/codex
-podman run -it --rm -v /YOUR_CONF_PATH:/conf:Z -v my_codex codex login --device-auth
+podman run -it --rm -v /YOUR_CONF_PATH:/conf:Z my_codex codex login --device-auth
 ```
 
 Follow the instructions for logging in.
