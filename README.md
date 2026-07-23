@@ -34,19 +34,25 @@ podman build -t my_codex .
 
 ## First time run
 
-In the following examples, change ̀`/YOUR_CONF_PATH` to an absolute path which you want to use for storing Codex login information etc.
+In the following snippets, we use host path `~/.config/codex-podman` for storing Codex login information etc. 
 
 ```
-mkdir -p /YOUR_CONF_PATH/codex
-podman run -it --rm -v /YOUR_CONF_PATH:/conf:Z my_codex codex login --device-auth
+mkdir -p ~/.config/codex-podman/codex
+podman run -it --rm -v  ~/.config/codex-podman/codex:/conf:Z my_codex codex login --device-auth
 ```
 
 Follow the instructions for logging in.
 
 ## Running
 
-To run and share your current working directory with the Codex container, run:
+To run and share your current working directory with the Codex
+container you may use this script. Don't fear `danger-full-access` too
+much since it's in the container, anyway.
 
 ```
-podman run -it --rm -v /YOUR_CONF_PATH:/conf:Z -v "$PWD:/work:Z" my_codex
+#!/bin/sh -eu
+exec podman run -it --rm -v ~/.config/codex-podman:/conf:Z -v "$PWD:/work:Z" my_codex codex -s danger-full-access "$@"
 ```
+
+When continuing previous work in Codex, remember to load you context
+with `/resume` or append `resume YOUR_UUID` to the script above.
