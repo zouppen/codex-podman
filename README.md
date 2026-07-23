@@ -45,6 +45,8 @@ Follow the instructions for logging in.
 
 ## Running
 
+To share your current working directory with the Codex container, run:
+
 ```
-podman run -it --rm -v /YOUR_CONF_PATH:/conf:Z -v /YOUR_PATH/work:/work:Z my_codex
+podman run -it --rm -v /YOUR_CONF_PATH:/conf:Z -v "$PWD:/work:Z" my_codex
 ```
