@@ -7,17 +7,20 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Update package lists and install some packages
 RUN apt-get update
 
-# Needed by Codex
+# Needed by Codex and useful generic Unix tools for everyday app develoment
 RUN apt-get install -y --no-install-recommends \
 	nodejs \
 	npm \
 	ripgrep \
-	bubblewrap \
 	file \
 	curl \
 	xxd \
 	less \
-	git
+	git \
+	ncat \
+	jq \
+	postgresql-client \
+	sqlite3
 
 # Install Codex
 RUN npm install -g @openai/codex
@@ -32,4 +35,4 @@ VOLUME /conf
 VOLUME /work
 
 # Default command (example usage of installed package)
-CMD ["codex", "-s", "danger-full-access"]
+CMD ["codex", "--dangerously-bypass-approvals-and-sandbox"]

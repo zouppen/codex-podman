@@ -21,15 +21,15 @@ podman build --no-cache -t codex .
 ## Your own work environment
 
 This is intended as a start point for your own coding agent
-container. You may need different utilities than I, so make a copy of
-directory `my_dev` and create your own `Containerfile`
+container. You may need different utilities than I, so feel free to
+copy an example from directory `my_dev` and create your own
+containerfile there.
 
-You may create your own Containerfile for your needs. I've put my
-example in [my_dev](my_dev/Containerfile). To build it:
+You may create your own Containerfile for your needs. One of the examples is the PHP dev container in
+[my_dev](my_dev/Containerfile-php). To build it:
 
 ```
-cd my_dev
-podman build -t my_codex .
+podman build -t cdoex-php -f my_dev/Containerfile-php
 ```
 
 ## First time run
@@ -38,7 +38,7 @@ In the following snippets, we use host path `~/.config/codex-podman` for storing
 
 ```
 mkdir -p ~/.config/codex-podman/codex
-podman run -it --rm -v  ~/.config/codex-podman/codex:/conf:Z my_codex codex login --device-auth
+podman run -it --rm -v ~/.config/codex-podman/codex:/conf:Z my_codex codex login --device-auth
 ```
 
 Follow the instructions for logging in.
@@ -46,12 +46,13 @@ Follow the instructions for logging in.
 ## Running
 
 To run and share your current working directory with the Codex
-container you may use this script. Don't fear `danger-full-access` too
-much since it's in the container, anyway.
+container you may use this script. Don't fear
+`--dangerously-bypass-approvals-and-sandbox` too much since it's in
+the container, anyway.
 
 ```
 #!/bin/sh -eu
-exec podman run -it --rm -v ~/.config/codex-podman:/conf:Z -v "$PWD:/work:Z" my_codex codex -s danger-full-access "$@"
+exec podman run -it --rm -v ~/.config/codex-podman:/conf:Z -v "$PWD:/work:Z" codex-php codex --dangerously-bypass-approvals-and-sandbox "$@"
 ```
 
 When continuing previous work in Codex, remember to load you context

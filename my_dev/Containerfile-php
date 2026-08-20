@@ -1,0 +1,8 @@
+# Use a stable Debian as the base image
+FROM localhost/codex
+
+# My own set of tools
+RUN apt-get install -y --no-install-recommends \
+	php-cli \
+	php-pgsql \
+	php-sqlite3 \
