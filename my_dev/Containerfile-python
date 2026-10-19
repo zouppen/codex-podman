@@ -1,0 +1,10 @@
+# Use a stable Debian as the base image
+FROM localhost/codex
+
+# My own set of tools
+RUN apt-get install -y --no-install-recommends \
+	python3-full \
+	python3-ipython \
+	python3-virtualenv \
+	python3-pip \
+	python3-pytest \
