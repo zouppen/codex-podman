@@ -29,7 +29,7 @@ You may create your own Containerfile for your needs. One of the examples is the
 [my_dev](my_dev/Containerfile-php). To build it:
 
 ```
-podman build -t cdoex-php -f my_dev/Containerfile-php
+podman build -t codex-php -f my_dev/Containerfile-php
 ```
 
 ## First time run
