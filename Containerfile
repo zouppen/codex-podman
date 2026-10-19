@@ -15,6 +15,7 @@ RUN apt-get install -y --no-install-recommends \
 	file \
 	curl \
 	xxd \
+	procps \
 	less \
 	git \
 	ncat \
